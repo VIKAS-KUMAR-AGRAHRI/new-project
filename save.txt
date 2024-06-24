@@ -1,0 +1,53 @@
+ try {
+      const query = {
+           mobile: req.body.mobile 
+      };
+      console.log(await usermodel.find())
+      console.log("check label 1");
+      const model = await usermodel.findOne(query);
+      console.log("check label 3");
+      if (model) {
+        if (req.body.email == model.email) {
+          return res.json({
+            responseCode: 409,
+            responseMessage: "Email already exist",
+          });
+        } else if (req.body.mobile == model.mobile) {
+          return res.json({
+            responseCode: 409,
+            responseMessage: "Mobile number already exist",
+          });
+        }
+      } else {
+        //call the generate function and get the value of generated code...
+        console.log("check label 2");
+        req.body.otp = otpgeneration();
+        req.body.otpTime = Date.now() + 10 * 50 * 1000; //Otp expire in 10 minutes.....
+        req.body.pass = bcrypt.hashSync(req.body.pass, 10);
+        //send mail at user email to otp varification ....................
+        const info = domail(
+          req.body.email,
+          "Otp verification",
+          `Your otp is ${req.body.otp}`
+        );
+        if (!info) {
+          return res.json({
+            responseCode: 505,
+            responseMessage: "Otp Mail is not sent",
+          });
+        } else {
+          const save = await usermodel(req.body).save();
+          return res.json({
+            responseCode: 200,
+            responseMessage: "singup successfully",
+            responseResult: save,
+          });
+        }
+      }
+    } catch (error) {
+      return res.json({
+        responseCode: 500,
+        responseMessage: "Something went wrong",
+        responseResult: error,
+      });
+    }

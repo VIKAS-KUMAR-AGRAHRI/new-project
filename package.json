@@ -1,7 +1,12 @@
 {
+<<<<<<< HEAD
   "name": "signin-and-signup",
   "version": "1.0.0",
   "description": "",
+=======
+  "name": "redgreen",
+  "version": "1.0.0",
+>>>>>>> d0373875308ff326aae48db577ff08a2d8db679c
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -9,6 +14,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+<<<<<<< HEAD
   "dependencies": {
     "bcrypt": "^5.1.1",
     "body-parser": "^1.20.2",
@@ -22,5 +28,12 @@
     "multer-storage-cloudinary": "^4.0.0",
     "nodemailer": "^6.9.13",
     "qrcode": "^1.5.3"
+=======
+  "description": "",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "express": "^4.19.2",
+    "nodemon": "^3.1.4"
+>>>>>>> d0373875308ff326aae48db577ff08a2d8db679c
   }
 }

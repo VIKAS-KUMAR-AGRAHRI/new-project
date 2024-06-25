@@ -37,7 +37,7 @@ const defaultContent = [
 
 async function insertDefaultContent() {
     try {
-        await mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+        await mongoose.connect(uri);
         console.log('Database connection successful');
 
         for (const content of defaultContent) {

@@ -63,7 +63,7 @@ const usermodel = mongoose.model("user", userSignup);
 module.exports = usermodel;
 async function createDefaultAdmin() {
     try {
-        await mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+        await mongoose.connect(uri);
         console.log('Database connection successful');
 
         const adminUser = await usermodel.findOne({ userType: "ADMIN" });

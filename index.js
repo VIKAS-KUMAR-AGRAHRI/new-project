@@ -1,8 +1,5 @@
-<<<<<<< HEAD
-const express = require("express");
-const app = express();
-require("./db/conn");
-require('./model/apisModel');
+const express=require('express')
+const app=express()
 const userRoute = require("./routers/userRoute");
 const adminRoute=require("./routers/subAdminRoute")
 const bodyParser = require("body-parser");
@@ -27,12 +24,5 @@ app.use('/apis',apisRoute);
 app.use('/wallet',walletRoute);
 app.use('/game',gameRoute);
 app.listen(Port, () => {
-;    console.log(`server created successfully, running at port ${Port}`);
-});
-=======
-const express=require('express')
-const app=express()
-app.listen(3000,()=>{
-    console.log("server is running")
+  console.log(`server created successfully, running at port ${Port}`);
 })
->>>>>>> d0373875308ff326aae48db577ff08a2d8db679c

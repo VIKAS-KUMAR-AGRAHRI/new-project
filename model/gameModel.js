@@ -1,9 +1,8 @@
 const mongoose=require('mongoose');
-const {Schema}=mongoose
 const  gameSchema=mongoose.Schema({
     game_id:{
-        type: Schema.Types.ObjectId,
-        ref: '',  // The model name should match the referenced model's name
+        type:String,
+        required:true        
     },
     user_id:{
         type:String,
@@ -33,6 +32,11 @@ const  gameSchema=mongoose.Schema({
     created_At: {
         type: Date,
         default: Date.now
+    }
+    ,
+    game_Status:{
+        type:Boolean,
+        default:true
     }
 })
 module.exports = mongoose.model('game', gameSchema);

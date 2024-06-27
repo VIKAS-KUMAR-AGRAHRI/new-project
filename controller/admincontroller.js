@@ -1,3 +1,4 @@
+//updated today
 const bcrypt = require('bcrypt');
 const users = require("../model/userModel");
 const jwt = require("jsonwebtoken");
